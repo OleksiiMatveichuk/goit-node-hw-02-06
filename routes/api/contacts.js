@@ -21,13 +21,9 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/:contactId", async (req, res, next) => {
-  // НЕ ПРАЦЮЄ
-  // .
-  // .
-  // .
   try {
-    const { id } = req.params;
-    const result = await contacts.getContactById(id);
+    const { contactId } = req.params;
+    const result = await contacts.getContactById(contactId);
     if (!result) {
       throw HttpError(404, "Not found");
     }
@@ -52,8 +48,9 @@ router.post("/", async (req, res, next) => {
 
 router.delete("/:contactId", async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const result = await contacts.removeContact(id);
+    const { contactId } = req.params;
+    const result = await contacts.removeContact(contactId);
+    console.log("result", result);
     if (!result) {
       throw HttpError(404, "Not found");
     }
@@ -64,17 +61,13 @@ router.delete("/:contactId", async (req, res, next) => {
 });
 
 router.put("/:contactId", async (req, res, next) => {
-  // НЕ ПРАЦЮЄ
-  // .
-  // .
-  // .
   try {
     const { error } = addShema.validate(req.body);
     if (error) {
       throw HttpError(400, "missing fields");
     }
-    const { id } = req.params;
-    const result = await contacts.updateContact(id, req.body);
+    const { contactId } = req.params;
+    const result = await contacts.updateContact(contactId, req.body);
     if (!result) {
       throw HttpError(404, "Not found");
     }

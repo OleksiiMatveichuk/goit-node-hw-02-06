@@ -23,13 +23,9 @@ const removeContact = async (contactId) => {
   if (index === -1) {
     return null;
   }
-  const [result] = data.splise(index, 1);
+  data.splice(index, 1);
   await updateContacts(data);
-  return result;
-  // нащо 2 змінні. різалт і дата. чи можна одну?
-  // data.splise(index, 1);
-  // await updateContacts(data);
-  // return data;
+  return data;
 };
 
 const addContact = async (body) => {
