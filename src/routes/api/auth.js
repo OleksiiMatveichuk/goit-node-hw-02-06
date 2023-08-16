@@ -18,7 +18,7 @@ router.get("/logout", authenticate, ctrl.logout);
 router.get("/current", authenticate, ctrl.getCurrent);
 
 router.patch(
-  "/users/:id/subscription",
+  "/users/:id",
   authenticate,
   validateBody(subscriptionSchema),
   ctrl.subscription

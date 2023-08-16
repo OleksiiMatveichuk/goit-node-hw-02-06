@@ -27,6 +27,4 @@ router.patch(
   ctrl.updateFavorite
 );
 
-router.get("/contacts", authenticate, ctrl.getFavorite);
-
 module.exports = router;
