@@ -1,7 +1,7 @@
-const { HttpError } = require("../helpers");
-const { Contact } = require("../models/contacts");
+const { Contact } = require("../../models/contacts");
+const { HttpError } = require("../../helpers");
 
-const updateContact = async (req, res) => {
+const updateFavorite = async (req, res) => {
   const { contactId } = req.params;
   const result = await Contact.findByIdAndUpdate(contactId, req.body, {
     new: true,
@@ -14,4 +14,4 @@ const updateContact = async (req, res) => {
   res.status(200).json(result);
 };
 
-module.exports = updateContact;
+module.exports = updateFavorite;

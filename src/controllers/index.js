@@ -1,10 +1,17 @@
-const getAll = require("./getAll");
-const getById = require("./getById");
-const addContact = require("./addContact");
-const updateContact = require("./updateContact");
-const deleteContact = require("./deleteContact");
-const updateFavorite = require("./updateFavorite");
+const getAll = require("./contacts/getAll");
+const getById = require("./contacts/getById");
+const addContact = require("./contacts/addContact");
+const updateContact = require("./contacts/updateContact");
+const deleteContact = require("./contacts/deleteContact");
+const updateFavorite = require("./contacts/updateFavorite");
+
 const { ctrlWrapper } = require("../helpers");
+
+const register = require("./auth/register");
+const login = require("./auth/login");
+const logout = require("./auth/logout");
+const getCurrent = require("./auth/getCurrent");
+const subscription = require("./auth/subscription");
 
 module.exports = {
   getAll: ctrlWrapper(getAll),
@@ -13,4 +20,9 @@ module.exports = {
   updateContact: ctrlWrapper(updateContact),
   deleteContact: ctrlWrapper(deleteContact),
   updateFavorite: ctrlWrapper(updateFavorite),
+  register: ctrlWrapper(register),
+  login: ctrlWrapper(login),
+  logout: ctrlWrapper(logout),
+  getCurrent: ctrlWrapper(getCurrent),
+  subscription: ctrlWrapper(subscription),
 };
