@@ -12,6 +12,7 @@ const login = require("./auth/login");
 const logout = require("./auth/logout");
 const getCurrent = require("./auth/getCurrent");
 const subscription = require("./auth/subscription");
+const updateAvatar = require("./auth/updateAvatar");
 
 module.exports = {
   getAll: ctrlWrapper(getAll),
@@ -25,4 +26,5 @@ module.exports = {
   logout: ctrlWrapper(logout),
   getCurrent: ctrlWrapper(getCurrent),
   subscription: ctrlWrapper(subscription),
+  updateAvatar: ctrlWrapper(updateAvatar),
 };
